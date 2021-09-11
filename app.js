@@ -7,7 +7,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.send('test')
+  res.render('index')
 })
 
 app.listen(port, () => {
