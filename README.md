@@ -10,7 +10,7 @@
 ### Installation and execution
 1. 打開 terminal 將此專案 clone 到本機電腦
 ```
-git clone 
+git clone https://github.com/Sin0001/Restaurant_List.git
 ```
 2. 安裝
 ```
