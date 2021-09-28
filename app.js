@@ -2,14 +2,14 @@ const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
-const restaurantList = require('./restaurant.json')
+const restaurantList = require('./models/seeds/restaurant.json')
 const port = 3000
 
 mongoose.connect('mongodb://localhost/restaurant-list')
 
 const db = mongoose.connection
 
-db.on('error' , () => {
+db.on('error', () => {
   console.log('mongodb error!')
 })
 
