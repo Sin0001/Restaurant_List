@@ -20,6 +20,7 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true}))
 
 //瀏覽首頁
 app.get('/', (req, res) => {
@@ -49,6 +50,19 @@ app.get('/search', (req, res) => {
       res.render('index', { restaurants: filteredRestaurant, keyword })
     })
     .catch(error => console.log(error))
+})
+
+//add new restaurant
+app.get('/restaurants/new', (req, res) =>{
+  res.render('new')
+})
+
+//送出新增餐廳
+app.post('/restaurants', (req, res) =>{
+  const name = req.body.name
+  return Restaurant.create({ name })
+          .then(() => res.redirect('/'))
+          .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
