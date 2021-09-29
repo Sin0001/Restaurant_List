@@ -60,8 +60,7 @@ app.get('/restaurants/new', (req, res) => {
 
 //送出新增餐廳
 app.post('/restaurants', (req, res) => {
-  const name = req.body.name
-  return Restaurant.create({ name })
+  return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -94,6 +93,15 @@ app.post('/restaurants/:id/edit', (req, res) => {
       }
       return restaurant.save()
     })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+//delete
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })

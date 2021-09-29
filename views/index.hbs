@@ -45,9 +45,13 @@
             </div>
           </div>
         </a>
-        <!-- 新增detail按鈕 -->
+        <!-- 新增detail按鈕、edit按鈕、刪除按鈕 -->
         <a href="./restaurants/{{ this._id }}">detail</a>
         <a href="./restaurants/{{ this._id }}/edit">edit</a>
+        <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+          <button type="submit">delete</button>
+        </form>
+
         {{/each}}
       </div>
     </div>
