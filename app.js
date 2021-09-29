@@ -75,6 +75,29 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console(error))
 })
 
+//編輯的頁面
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console(error))
+})
+
+//送出編輯渲染回首頁
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then((restaurant) => {
+      for (const [key, value] of Object.entries(req.body)) {
+        restaurant[key] = value
+      }
+      return restaurant.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)
 })
