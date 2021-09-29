@@ -17,10 +17,10 @@
 </div>
 
 <!-- 新增create按鈕 -->
-      <form action="/restaurants/new">
-        <button type="summit" class="btn btn-outline-secondary mt-3 btn-sm btn-block"><i
-            class="fas fa-plus-square mr-2"></i>加入新餐廳</button>
-      </form>
+<form action="/restaurants/new">
+  <button type="summit" class="btn btn-outline-secondary mt-3 btn-sm btn-block"><i
+      class="fas fa-plus-square mr-2"></i>加入新餐廳</button>
+</form>
 
 
 <!-- restaurant list -->
@@ -45,6 +45,8 @@
             </div>
           </div>
         </a>
+        <!-- 新增detail按鈕 -->
+        <a href="./restaurants/{{ this._id }}">detail</a>
         {{/each}}
       </div>
     </div>
