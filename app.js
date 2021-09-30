@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
-const restaurant = require('./models/restaurant')
 const Restaurant = require('./models/restaurant')
 const port = 3000
 
@@ -33,7 +32,7 @@ app.get('/', (req, res) => {
 
 //search restaurant and render
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword.trim()
   const keywordArr = keyword.toLowerCase().split(' ')
   Restaurant.find()
     .lean()
@@ -52,6 +51,8 @@ app.get('/search', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+
+
 
 //新增餐廳
 app.get('/restaurants/new', (req, res) => {

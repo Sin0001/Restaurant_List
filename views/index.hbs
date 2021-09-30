@@ -17,10 +17,12 @@
 </div>
 
 <!-- 新增create按鈕 -->
-<form action="/restaurants/new">
-  <button type="summit" class="btn btn-outline-secondary mt-3 btn-sm btn-block"><i
-      class="fas fa-plus-square mr-2"></i>加入新餐廳</button>
-</form>
+<div class="createBtn">
+  <form action="/restaurants/new">
+    <button type="summit" class="btn btn-outline-danger">
+      <i class="fas fa-plus-circle"></i>加入新餐廳</button>
+  </form>
+</div>
 
 
 <!-- restaurant list -->
@@ -46,12 +48,27 @@
           </div>
         </a>
         <!-- 新增detail按鈕、edit按鈕、刪除按鈕 -->
-        <a href="./restaurants/{{ this._id }}">detail</a>
-        <a href="./restaurants/{{ this._id }}/edit">edit</a>
-        <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
-          <button type="submit">delete</button>
-        </form>
-
+        <div class="buttons">
+          <div class="edit">
+            <a href="./restaurants/{{ this._id }}/edit" style="text-decoration:none;">
+              <button class="btn btn-success">
+                <i class="fas fa-edit"></i>edit
+              </button>
+            </a>
+          </div>
+          <div class="detail">
+            <a href="./restaurants/{{ this._id }}" style="text-decoration:none;">
+              <button class="btn btn-primary">
+                <i class="fas fa-info-circle"></i>detail
+              </button>
+            </a>
+          </div>
+          <div class="delete">
+            <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-warning"><i class="fas fa-trash-alt"></i>delete</button>
+            </form>
+          </div>
+        </div>
         {{/each}}
       </div>
     </div>

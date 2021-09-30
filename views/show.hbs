@@ -2,11 +2,29 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
-      <!-- 新增edit按鈕、delete按鈕 -->
-      <a href="./restaurants/{{ restaurant._id }}/edit">edit</a>
-      <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
-        <button type="submit">delete</button>
-      </form>
+      <!-- 新增edit按鈕、delete按鈕、back按鈕 -->
+      <div class="buttons">
+        <div class="edit">
+          <a href="/restaurants/{{ restaurant._id }}/edit" style="text-decoration:none;">
+            <button class="btn btn-success">
+              <i class="fas fa-edit"></i>edit
+            </button>
+          </a>
+        </div>
+        <div class="delete">
+          <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-warning"><i class="fas fa-trash-alt"></i>delete</button>
+          </form>
+        </div>
+        <div class="back">
+          <a href="/" style="text-decoration:none;">
+            <button class="btn btn-secondary">
+              <i class="fas fa-undo"></i>back
+            </button>
+          </a>
+        </div>
+      </div>
+
 
       <p class="mb-1">
         <span class="text-secondary">
