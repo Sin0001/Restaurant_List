@@ -50,11 +50,11 @@
         <!-- 新增detail按鈕、edit按鈕、刪除按鈕 -->
         <div class="buttons">
           <div class="edit">
-            <a href="./restaurants/{{ this._id }}/edit" style="text-decoration:none;">
+            <form action="/restaurants/{{this._id}}/edit" method="GET" style="display: inline;">
               <button class="btn btn-success">
                 <i class="fas fa-edit"></i>edit
               </button>
-            </a>
+            </form>
           </div>
           <div class="detail">
             <a href="./restaurants/{{ this._id }}" style="text-decoration:none;">
@@ -64,7 +64,7 @@
             </a>
           </div>
           <div class="delete">
-            <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+            <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-warning"><i class="fas fa-trash-alt"></i>delete</button>
             </form>
           </div>
