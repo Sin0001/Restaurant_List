@@ -24,7 +24,7 @@ router.get('/search', (req, res) => {
           name.includes(word) || category.includes(word)
         )) {
           filteredRestaurant.push(restaurant)
-        }
+        } 
       }
       res.render('index', { restaurants: filteredRestaurant, keyword })
     })
