@@ -16,13 +16,34 @@
   </div>
 </div>
 
-<!-- 新增create按鈕 -->
-<div class="createBtn">
-  <form action="/restaurants/new">
-    <button type="summit" class="btn btn-outline-danger">
-      <i class="fas fa-plus-circle"></i>加入新餐廳</button>
-  </form>
+<div class="container">
+  <!-- 新增create按鈕 -->
+  <div class="createBtn">
+    <form action="/restaurants/new">
+      <button type="summit" class="btn btn-outline-danger">
+        <i class="fas fa-plus-circle"></i>加入新餐廳</button>
+    </form>
+  </div>
+
+  {{!-- 新增sort按鈕 --}}
+  <!-- Example single danger button -->
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Action
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+  </div>
 </div>
+
+
 
 
 <!-- restaurant list -->
@@ -32,7 +53,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each restaurants}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
+        <a href="/restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
