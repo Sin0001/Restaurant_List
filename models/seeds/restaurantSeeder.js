@@ -14,7 +14,8 @@ db.once('open', () => {
       phone: item.phone,
       google_map: item.google_map,
       rating: item.rating,
-      description: item.description
+      description: item.description,
+      userId: userId
     })
   });
   console.log('Done. Ctrl + c to exit.')
