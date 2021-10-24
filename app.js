@@ -4,11 +4,16 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 require('./config/mongoose')
 
-const port = 3000
+const PORT = 3000
 const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -39,6 +44,6 @@ app.use((req, res, next) => {
 
 app.use(routes)
 
-app.listen(port, () => {
-  console.log(`Express is listening on localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Express is listening on localhost:${PORT}`)
 })
