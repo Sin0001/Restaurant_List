@@ -12,9 +12,10 @@ router.get('/', (req, res) => {
 
 //search餐廳
 router.get('/search', (req, res) => {
+  const userId = req.user._id
   const keyword = req.query.keyword.trim()
   const keywordArr = keyword.toLowerCase().split(' ')
-  Restaurant.find()
+  Restaurant.find({userId})
     .lean()
     .then(restaurants => {
       let filteredRestaurant = []
